@@ -118,3 +118,5 @@ See the `LICENSE` file for details.
 
 **Tuan Nguyen**\
 GitHub: https://github.com/tuan2090
+
+`This content is create with ChatGPT`
