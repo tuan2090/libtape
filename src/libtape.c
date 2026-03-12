@@ -1,19 +1,4 @@
-#include <ctype.h>
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-// --- Tape struct ---
-
-typedef struct {
-  size_t tape_length;
-  unsigned char *tape_data;
-  size_t head;
-  bool is_debug_mode_enable;
-  size_t run_step;
-} Tape;
+#include "libtape.h"
 
 // --- Tape implement ---
 
@@ -122,7 +107,7 @@ void write_at_head(Tape *tape, unsigned char value) {
   tape->tape_data[tape->head] = value;
 }
 
-const unsigned char read_at_head(Tape *tape) {
+unsigned char read_at_head(Tape *tape) {
   // If debug mode enable, run it
   if (tape->is_debug_mode_enable) {
     tape->run_step++;
@@ -132,7 +117,7 @@ const unsigned char read_at_head(Tape *tape) {
   return tape->tape_data[tape->head];
 }
 
-const unsigned char read_tape(Tape *tape, size_t pos) {
+unsigned char read_tape(Tape *tape, size_t pos) {
   // Check if tape length is small than content position
   if (pos >= tape->tape_length) {
     // Display error messenger
@@ -181,44 +166,4 @@ void show_tape_table(const Tape *tape) {
     printf("\n");
   }
 }
-int main(void) {
-  printf("Tape 1\n");
-  Tape tape1;
-  init_tape(&tape1, 8);
-  tape1.is_debug_mode_enable = true;
 
-  write_at_head(&tape1, 'H');
-  move_right(&tape1);
-  write_at_head(&tape1, 'e');
-  move_right(&tape1);
-  write_at_head(&tape1, 'l');
-  move_right(&tape1);
-  write_at_head(&tape1, 'l');
-  move_right(&tape1);
-  write_at_head(&tape1, 'o');
-  move_right(&tape1);
-  
-  show_tape_table(&tape1);
-
-  printf("Tape 2\n");
-  Tape tape2;
-  init_tape(&tape2, 8);
-  tape2.is_debug_mode_enable = true;
-
-  write_at_head(&tape2, 'W');
-  move_right(&tape2);
-  write_at_head(&tape2, 'o');
-  move_right(&tape2);
-  write_at_head(&tape2, 'r');
-  move_right(&tape2);
-  write_at_head(&tape2, 'l');
-  move_right(&tape2);
-  write_at_head(&tape2, 'd');
-  move_right(&tape2);
-
-  show_tape_table(&tape2);
-
-  free_tape(&tape1);
-  free_tape(&tape2);
-  return 0;
-}

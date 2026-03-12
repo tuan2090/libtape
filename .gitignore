@@ -1,1 +1,28 @@
+# --- Binaries ---
+# Ignore the final executable located in bin/
 bin/
+
+# --- Intermediate Build Files ---
+# Ignore all object files in the obj/ directory
+obj/
+*.o
+
+# --- Libraries ---
+# Ignore static (.a) and shared (.so, .dll, .dylib) libraries in lib/
+lib/
+*.a
+*.so
+*.dll
+*.dylib
+
+# --- Editor & OS Temp Files ---
+# Ignore swap files from editors like nano or vim
+*.swp
+*~
+.DS_Store
+
+# --- Debug/Log Files ---
+# In case you generate any core dumps or logs
+*.log
+vgcore.*
+
