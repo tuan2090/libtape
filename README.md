@@ -96,9 +96,9 @@ gcc example.c -ltape -o example
 
 Contributions are welcome!
 
-1.  Fork the repository\
-2.  Create a new branch\
-3.  Commit your changes\
+1.  Fork the repository
+2.  Create a new branch
+3.  Commit your changes
 4.  Open a Pull Request
 
 Please ensure code follows the existing style and includes tests where
@@ -118,5 +118,3 @@ See the `LICENSE` file for details.
 
 **Tuan Nguyen**\
 GitHub: https://github.com/tuan2090
-
-`This content is create with ChatGPT`
