@@ -5,14 +5,7 @@ streams and sequential storage utilities**.\
 It provides a simple API for reading, writing, and managing sequential
 data structures that behave similarly to tape devices.
 
-The library is designed to be:
-
--   ⚡ Lightweight
--   🧩 Easy to integrate
--   🔧 Portable across platforms
--   📦 Suitable for low-level systems programming
-
-------------------------------------------------------------------------
+--------------------------------------------
 
 ## Features
 
@@ -22,7 +15,7 @@ The library is designed to be:
 -   Clean C API
 -   Designed for embedding in other projects
 
-------------------------------------------------------------------------
+--------------------------------------------
 
 ## Installation
 
@@ -57,6 +50,8 @@ Example basic usage:
 int main() {
   Tape t1;
   init_tape(&t1, 8);
+
+  // Enable debug mode
   t1.is_debug_mode_enable = true;
 
   write_at_head(&tape, 'A');
@@ -68,6 +63,7 @@ int main() {
 
   show_tape_table(&tape);
 
+  // Don't forget to free tape!!!!!
   free_tape(&tape);
   return 0;
 }
@@ -79,7 +75,7 @@ Compile example:
 gcc example.c -ltape -o example
 ```
 
-------------------------------------------------------------------------
+--------------------------------------------
 
 ## Project Structure
 
@@ -90,7 +86,7 @@ gcc example.c -ltape -o example
     ├── Makefile
     └── README.md
 
-------------------------------------------------------------------------
+--------------------------------------------
 
 ## Contributing
 
@@ -104,7 +100,7 @@ Contributions are welcome!
 Please ensure code follows the existing style and includes tests where
 appropriate.
 
-------------------------------------------------------------------------
+--------------------------------------------
 
 ## License
 
@@ -112,9 +108,9 @@ This project is licensed under the **MIT License**.
 
 See the `LICENSE` file for details.
 
-------------------------------------------------------------------------
+--------------------------------------------
 
 ## Author
 
-**Tuan Nguyen**\
+**Tuan Nguyen**
 GitHub: https://github.com/tuan2090
