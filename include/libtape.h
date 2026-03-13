@@ -23,7 +23,6 @@ typedef struct {
 void init_tape(Tape *tape, size_t size);
 void free_tape(Tape *tape);
 
-void halt(Tape *tape);
 void move_right(Tape *tape);
 void move_left(Tape *tape);
 void head_jump(Tape *tape, size_t pos);
