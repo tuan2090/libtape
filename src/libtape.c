@@ -34,7 +34,7 @@ void free_tape(Tape *tape) {
   tape->tape_data = NULL;
 }
 
-void head_halt(Tape *tape) {
+void halt(Tape *tape) {
   printf("HALTED\n");
   free_tape(tape);
   exit(EXIT_SUCCESS);
@@ -78,7 +78,27 @@ void move_left(Tape *tape) {
   }
 }
 
-void head_jump(Tape *tape, size_t pos) {
+void increment_head_value(Tape *tape) {
+  tape->tape_data[tape->head]++;
+
+  // If debug mode enable, run it
+  if (tape->is_debug_mode_enable) {
+    tape->run_step++;
+    printf("Step %zu: Increment head value (head position: %zu)\n", tape->run_step, tape->head);
+  }
+}
+
+void decrement_head_value(Tape *tape) {
+  tape->tape_data[tape->head]--;
+
+  // If debug mode enable, run it
+  if (tape->is_debug_mode_enable) {
+    tape->run_step++;
+    printf("Step %zu: Decrement head value (head position: %zu)\n", tape->run_step, tape->head);
+  }
+}
+
+void move_head(Tape *tape, size_t pos) {
   // Check if tape head is move below index 0 or past tape length
   if (tape->head >= tape->tape_length-1 || tape->head == 0) {
     // Display error messenger

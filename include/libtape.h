@@ -23,10 +23,13 @@ typedef struct {
 void init_tape(Tape *tape, size_t size);
 void free_tape(Tape *tape);
 
-void head_halt(Tape *tape);
+void halt(Tape *tape);
 void move_right(Tape *tape);
 void move_left(Tape *tape);
 void head_jump(Tape *tape, size_t pos);
+
+void increment_head_value(Tape *tape);
+void decrement_head_value(Tape *tape);
 
 void write_at_head(Tape *tape, unsigned char value);
 unsigned char read_at_head(Tape *tape);
