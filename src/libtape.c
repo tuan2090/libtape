@@ -34,12 +34,6 @@ void free_tape(Tape *tape) {
   tape->tape_data = NULL;
 }
 
-void halt(Tape *tape) {
-  printf("HALTED\n");
-  free_tape(tape);
-  exit(EXIT_SUCCESS);
-}
-
 void move_right(Tape *tape) {
   // Check if tape head is move past tape length
   if (tape->head >= tape->tape_length-1) {
