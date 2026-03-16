@@ -38,7 +38,7 @@ Install it!:
 sudo make install
 ```
 
-------------------------------------------------------------------------
+--------------------------------------------
 
 ## Usage
 
@@ -73,6 +73,16 @@ Compile example:
 
 ``` bash
 gcc example.c -ltape -o example
+```
+
+--------------------------------------------
+
+## HOW TO UNINSTALL IT!
+
+Just run this command!
+
+``` bash
+sudo make uninstall
 ```
 
 --------------------------------------------
