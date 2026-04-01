@@ -152,7 +152,7 @@ unsigned char read_tape(Tape *tape, size_t pos) {
 }
 
 void show_tape_table(const Tape *tape) {
-  printf("DEBUG TAPE \n\n");
+  printf("Tape Table \n\n");
   printf("Tape index | Hex  |  Dec  | Is Head? | ASCII\n");
   printf("-----------|------|-------|----------|------\n");
 
