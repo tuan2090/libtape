@@ -4,7 +4,6 @@
 int main(void) {
   Tape t;
   init_tape(&t, 8);
-  t.is_debug_mode_enable = true;
 
   // Writing data to tape
   unsigned char name[7] = "Alice";
@@ -18,9 +17,8 @@ int main(void) {
     unsigned char content = read_tape(&t, i);
     printf("%c", content);
   }
+  printf("\n");
  
-
-  show_tape_table(&t);
 
   free_tape(&t);
 
