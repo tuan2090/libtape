@@ -61,15 +61,6 @@ void move_right(Tape *tape) {
 }
 
 void move_left(Tape *tape) {
-  // Check if tape head is move below index 0
-  if (tape->head < 0) {
-    // Display error messenger
-    fprintf(stderr, "ERROR: Head attempted to move below index 0\n");
-
-    // Exit and send exit failure signal
-    exit(EXIT_FAILURE);
-  }
-
   tape->head--;
 
   // If debug mode enable, run it
@@ -101,15 +92,6 @@ void increment_head_value(Tape *tape) {
 }
 
 void decrement_head_value(Tape *tape) {
-  // Check if tape head is move below index 0
-  if (tape->head < 0) {
-    // Display error messenger
-    fprintf(stderr, "ERROR: Head attempted to move below index 0\n");
-
-    // Exit and send exit failure signal
-    exit(EXIT_FAILURE);
-  }
-
   tape->tape_data[tape->head]--;
 
   // If debug mode enable, run it
@@ -122,7 +104,7 @@ void decrement_head_value(Tape *tape) {
 
 void head_jump(Tape *tape, size_t pos) {
   // Check if position is move below index 0 or past tape length
-  if (pos >= tape->tape_length - 1 || pos < 0) {
+  if (pos >= tape->tape_length - 1) {
     // Display error messenger
     fprintf(stderr, "ERROR: Head attempted to move below index 0 or move past "
                     "tape length\n");
