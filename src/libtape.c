@@ -159,7 +159,13 @@ void write_at_head(Tape *tape, unsigned char value) {
 }
 
 unsigned char read_at_head(Tape *tape) {
-  // If debug mode enable, run it
+   // Check if tape head is greater than tape length
+  if (tape->head >= tape->tape_length) {
+    fprintf(stderr, "ERROR: The tape head position should less than tape length\n");
+    exit(EXIT_FAILURE);
+  }
+
+ // If debug mode enable, run it
   if (tape->is_debug_mode_enable) {
     tape->run_step++;
     printf("Step %zu: Read %zu(%c) value (head position: %zu)\n",
