@@ -3,6 +3,12 @@
 // --- Tape implement ---
 
 void init_tape(Tape *tape, size_t size) {
+  // Check if size is less or equal 0
+  if (size <= 0) {
+    fprintf(stderr, "ERROR: The size must be greater or equal 0\n");
+    exit(EXIT_FAILURE);
+  }
+
   tape->tape_length = size;
 
   // Allocate tape data
@@ -56,7 +62,7 @@ void move_right(Tape *tape) {
 
 void move_left(Tape *tape) {
   // Check if tape head is move below index 0
-  if (tape->head <= 0) {
+  if (tape->head < 0) {
     // Display error messenger
     fprintf(stderr, "ERROR: Head attempted to move below index 0\n");
 
@@ -96,7 +102,7 @@ void increment_head_value(Tape *tape) {
 
 void decrement_head_value(Tape *tape) {
   // Check if tape head is move below index 0
-  if (tape->head <= 0) {
+  if (tape->head < 0) {
     // Display error messenger
     fprintf(stderr, "ERROR: Head attempted to move below index 0\n");
 
@@ -115,8 +121,8 @@ void decrement_head_value(Tape *tape) {
 }
 
 void head_jump(Tape *tape, size_t pos) {
-  // Check if tape head is move below index 0 or past tape length
-  if (pos >= tape->tape_length - 1 || pos == 0) {
+  // Check if position is move below index 0 or past tape length
+  if (pos >= tape->tape_length - 1 || pos < 0) {
     // Display error messenger
     fprintf(stderr, "ERROR: Head attempted to move below index 0 or move past "
                     "tape length\n");
@@ -136,6 +142,12 @@ void head_jump(Tape *tape, size_t pos) {
 }
 
 void write_at_head(Tape *tape, unsigned char value) {
+  // Check if tape head is greater than tape length
+  if (tape->head >= tape->tape_length) {
+    fprintf(stderr, "ERROR: The tape head position should less than tape length\n");
+    exit(EXIT_FAILURE);
+  }
+
   // If debug mode enable, run it
   if (tape->is_debug_mode_enable) {
     tape->run_step++;

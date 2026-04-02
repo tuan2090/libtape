@@ -5,9 +5,9 @@ int main(void) {
   init_tape(&t, 8);
   t.is_debug_mode_enable = true;
 
-  unsigned char name[7] = "Johnny";
+  unsigned char name[6] = "Johnny";
 
-  for (size_t i = 0; i < 7; i++) {
+  for (size_t i = 0; i < 6; i++) {
     write_at_head(&t, name[i]);
     move_right(&t);
   }

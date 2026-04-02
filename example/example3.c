@@ -6,14 +6,14 @@ int main(void) {
   init_tape(&t, 8);
 
   // Writing data to tape
-  unsigned char name[7] = "Alice";
-  for (size_t i = 0; i < 7; i++) {
+  unsigned char name[5] = "Alice";
+  for (size_t i = 0; i < 5; i++) {
     write_at_head(&t, name[i]);
     move_right(&t);
   };
 
   // Reading data from tape
-  for (size_t i = 0; i < 7; i++) {
+  for (size_t i = 0; i < 5; i++) {
     unsigned char content = read_tape(&t, i);
     printf("%c", content);
   }
