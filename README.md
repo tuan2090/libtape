@@ -48,8 +48,8 @@ Example basic usage:
 #include "libtape.h"
 
 int main() {
-  Tape t1;
-  init_tape(&t1, 8);
+  Tape tape;
+  init_tape(&tape, 3);
 
   // Enable debug mode
   t1.is_debug_mode_enable = true;
@@ -59,7 +59,6 @@ int main() {
   write_at_head(&tape, 'B');
   move_right(&tape);
   write_at_head(&tape, 'C');
-  move_right(&tape);
 
   show_tape_table(&tape);
 
