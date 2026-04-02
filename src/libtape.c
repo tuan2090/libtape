@@ -5,7 +5,7 @@
 void init_tape(Tape *tape, size_t size) {
   // Check if size is less or equal 0
   if (size <= 0) {
-    fprintf(stderr, "ERROR: The size must be greater or equal 0\n");
+    fprintf(stderr, "ERROR: The size should be greater than 0\n");
     exit(EXIT_FAILURE);
   }
 
