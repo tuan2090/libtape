@@ -1,9 +1,7 @@
 # libtape
 
 `libtape` is a lightweight C library for working with **tape-style data
-streams and sequential storage utilities**.\
-It provides a simple API for reading, writing, and managing sequential
-data structures that behave similarly to tape devices.
+streams and sequential storage utilities**.
 
 --------------------------------------------
 
@@ -52,7 +50,7 @@ int main() {
   init_tape(&tape, 3);
 
   // Enable debug mode
-  t1.is_debug_mode_enable = true;
+  tape.is_debug_mode_enable = true;
 
   write_at_head(&tape, 'A');
   move_right(&tape);
@@ -89,9 +87,9 @@ sudo make uninstall
 ## Project Structure
 
     libtape/
-    ├── src/        # Library source code
-    ├── include/    # Public headers
-    ├── examples/   # Example programs
+    ├── src/  <- Source code
+    ├── include/ <- Header file
+    ├── examples/ <- Example code
     ├── Makefile
     └── README.md
 
